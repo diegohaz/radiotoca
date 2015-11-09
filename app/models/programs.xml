@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+* INSTRUÇÕES
+*
+* OS SÍBOLOS '&', '<' E '>' DEVEM SER INSERIDOS COMO '&amp;' (&), '&lt;' (<) E '&gt;' (>);
+*
+* Os atributos de <programs> determinam o que será apresentado, a ordem e o rótulo na página específica da programa. Portanto, qualquer novo atributo pode ser declarado em qualquer <program> e seu rótulo definido em <programs> e ele aparecerá na página da programa. Alguns elementos, porém, tem sua lógica determinada pelo controller, como é o caso de SONGS;
+* Não há necessidade de colocar os <program> em qualquer ordem específica, somente por questões de organização;
+* O atributo ID em <program> PRECISA ser único;
+* O atributo TITLE em <program> define o título do programa e PRECISA ser único;
+* O atributo DJ em <program> define o nome do dj PADRÃO do programa. Podem haver djs específicos para cada horário do programa, estes deverão ser definidos no model SCHEDULE;
+* O atributo GENRE em <program> define o gênero do programa, que tipo de música costuma tocar;
+* Opcionalmente, pode ser definido o atributo SLUG em <program>;
+* O elemento <desc> é acrescentado na página específica do programa;
+* Em <songs> devem ser colocadas as músicas frequentes do programa, em cada <song>;
+* O atributo ID em <song> faz referência ao <song> com o mesmo ID no model SONGS e aproveita seus atributos;
+* O atributo FREQUENCY em <song> é a relação quantidade/programa da música, ou seja, quantas vezes a música costuma tocar por programa. É só uma estimativa, não precisa ser exato. De acordo com este valor, músicas que são mais frequentes possuem mais chances de aparecer anexadas ao programa no topo do site, no módulo iSchedule, em DEPOIS e MAIS TARDE. Este atributo é opcional e seu valor padrão é 1, ou seja, caso ele não seja definido, o sistema assumirá que esta música é tocada uma vez para cada programa. Se eu quiser, por exemplo, definir que ela é tocada, por estimativa, uma vez a cada 5 programas, tenho que definir frequency="1/5";
+-->
+<programs desc="Descrição" genre="Gênero" dj="DJ{s}" hours="Horários" songs="Músicas frequentes">
+
+	<program id="1" title="Toca Ai" dj="AutoDJ" genre="Alternativo">
+		<desc>Antes de ligar, aumente o som</desc>
+		<songs>
+			<song id="1" frequency="1" />
+			<song id="2" frequency="1" />
+			<song id="3" frequency="1" />
+			<song id="4" frequency="1/2" />
+			<song id="5" frequency="1/2" />
+			<song id="6" frequency="1" />
+			<song id="7" frequency="1/2" />
+			<song id="8" frequency="1/2" />
+			<song id="9" frequency="1/5" />
+			<song id="10" frequency="1/5" />
+			<song id="11" frequency="1" />
+			<song id="12" frequency="1" />
+			<song id="13" frequency="1" />
+			<song id="14" frequency="1/2" />
+			<song id="15" frequency="1/2" />
+		</songs>
+	</program>
+
+	<program id="2" title="Programa Teste" dj="Testezinho" genre="Rock">
+		<desc>Descrição teste</desc>
+		<songs>
+			<song id="1" />
+			<song id="2" />
+		</songs>
+	</program>
+
+</programs>

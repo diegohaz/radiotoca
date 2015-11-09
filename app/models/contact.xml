@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<contact>
+
+	<info
+		legend="Contato"
+		subject="{name} entrou em contato pelo site"
+		to="{email}"
+	/>
+
+	<fields>
+		<input name="name" label="Nome" required="required" mask="/^[^\&quot;'!@#$%&amp;*\()+\{}\[\]\/&lt;&gt;;:_0-9-]+$/">
+			<empty>Qual é o seu nome?</empty>
+			<invalid>Há alguns caracteres inválidos no nome</invalid>
+		</input>
+		<input name="email" label="E-mail" required="required" mask="/^[^!@#$%&amp;*\()\/\; ]+@[a-zA-Z0-9\-_]+\.[a-zA-Z0-9\-_\.]+$/">
+			<empty>Não deixe o e-mail em branco</empty>
+			<invalid>Parece que você não digitou o e-mail corretamente. Siga o formato aaa@aaa.aaa</invalid>
+		</input>
+		<textarea name="msg" label="Mensagem" required="required">
+			<empty>Não se esqueça de escrever a mensagem</empty>
+		</textarea>
+	</fields>
+
+	<feedback>
+		<error>Ops! Tem algo errado com os campos.</error>
+		<success>Mensagem enviada com sucesso!</success>
+		<undefined>Ocorreu um erro no envio do formulário! Por favor, tente novamente mais tarde.</undefined>
+	</feedback>
+
+</contact>

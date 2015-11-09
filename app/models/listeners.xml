@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<listeners tweetsCountText="" location="Localização" url="Website" desc="Descrição" last_tweets="Últimas twittadas">
+
+	<listener>
+		<tweetsCount>{n} tweet{s}</tweetsCount>
+		<url><a href="{url}" target="_blank">{url}</a></url>
+	</listener>
+
+</listeners>

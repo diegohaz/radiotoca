@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ * @package				core.models.pages
+ * @since 				Neleus 0.2
+ * @version 			0.5
+ * @author 				Diego Haz <http://diegohaz.com>
+ * @lastmodified	21/08/2010
+-->
+<main>
+	<title>Application is ready</title>
+	<header>Application is ready!</header>
+	<desc>But there's not a main PageController declared.</desc>
+	<desc>To start programming the application, just create a PageController with name <em>{main_page}</em> in <em>{pages_dir}</em>.</desc>
+	<desc>If you want to make antoher PageController (wich isn't <em>{main_page}</em>) the main page, just configure <em>$app['main_page']</em> at <em>{config_dir}/application.php</em>.</desc>
+</main>

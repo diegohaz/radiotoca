@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+* INSTRUÇÕES
+*
+* OS SÍBOLOS '&', '<' E '>' DEVEM SER INSERIDOS COMO '&amp;' (&), '&lt;' (<) E '&gt;' (>);
+*
+* Os atributos de <songs> determinam o que será apresentado, a ordem e o rótulo na página específica da música. Portanto, qualquer novo atributo pode ser declarado em qualquer <song> e seu rótulo definido em <songs> e ele aparecerá na página da música. Alguns atributos, porém, tem sua lógica determinada pelo controller, como é o caso de PROGRAMS;
+* A ordem das <song> define a ordem do TOP MÚSICAS. Não há necessidade de ordenar pelo ID, uma vez definido, o ideal é que o ID não seja alterado. No entanto a <song> pode ser trocada de posição a qualquer momento;
+* Os atributos ID e TITLE em <song> PRECISAM ser únicos;
+* Opcionalmente, pode ser acrescentado o atributo SLUG em <song>, que definirá o slug da música na página. Ex:
+* <song id="1" title="We are the Champions" artist="Queen" album="Álbum" slug="qualquer-coisa" />
+* Neste caso acima, em vez de /grade/musicas/queen-we-are-the-champions, o link passará a ser /grade/musicas/qualquer-coisa;
+-->
+<songs artist="Artista" album="Álbum" programs="Toca em">
+
+	<song id="1" title="Stereo Love" artist="Edward Maya &amp; Vika Jigulina" album="" />
+	<song id="12" title="Black Eyed Peas - Pump It" artist="Travis Barker Remix" album="" />
+	<song id="2" title="Devotion" artist="Bingo Player" album="" />
+	<song id="11" title="Rihanna - Umbrella" artist="Travis Barker Remix" album="" />
+	<song id="3" title="Para Sambar" artist="Tiko's Groove Feat. Mendonça do Rio" album="" />
+	<song id="8" title="Hit N Run (Skazi Rmx 2008)" artist="Skazi" album="" />
+	<song id="4" title="Bad Romance" artist="D'Mixmaster" album="" />
+	<song id="14" title="Right Now - Akon" artist="On The Floor" album="" />
+	<song id="5" title="Hear My Call" artist="Timofey &amp; Bartosz Brenes Feat. Jerique" album="" />
+	<song id="10" title="Flo Rida - Low (ft. T-Pain)" artist="Travis Barker Remix" album="" />
+	<song id="6" title="Aggression" artist="Skazi" album="" />
+	<song id="7" title="Disco Shit" artist="Skazi" album="" />
+	<song id="9" title="Dope Boys" artist="The Game feat. Travis Barker" album="" />
+	<song id="15" title="I Know You Want Me" artist="On The Floor" album="" />
+	<song id="13" title="I Loved" artist="On The Floor" album="" />
+
+</songs>

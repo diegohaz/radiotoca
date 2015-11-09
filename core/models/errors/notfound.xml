@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ * @package				core.models.errors
+ * @since 				Neleus 0.2
+ * @version 			0.3.1
+ * @author 				Diego Haz <http://diegohaz.com>
+ * @lastmodified	21/08/2010
+-->
+<notfound>
+	<title>404 - Page not found</title>
+	<header>Page not found</header>
+	<desc>The requested URI <em>{uri}</em> was not found on this server.</desc>
+	<desc><a href="{url()}">Back to home page</a></desc>
+</notfound>

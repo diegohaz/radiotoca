@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+* INSTRUÇÕES
+*
+* A ordem dos dias e horários somente influencia a ordem em que eles aparecem na página GRADE DE PROGRAMAÇÃO. Portanto, por exemplo, <sunday> pode ser colocado por último, despois de <saturday>, desde que se mantenham os nomes 'sunday' e 'saturday';
+* O atributo TITLE é usado nos rótulos dos dias da página GRADE DE PROGRAMAÇÃO;
+* O atributo ID em cada <program> faz referência ao <program> com o mesmo ID no model PROGRAMS e aproveita seus atributos;
+* O atributo HOUR também não precisa estar na ordem correta;
+* Opcionalmente, pode ser acrescentado o atributo DJ em cada <program>, caso haja um dj específico para aquele horário, que seja diferente do DJ padrão declarado no model PROGRAMS. Ex: <program id="5" hour="22:15" dj="Dj específico deste horário" />
+-->
+<schedule full_hour="{begin} às {end}" full_date="{day}, {full_hour}">
+
+	<sunday title="Domingo">
+		<program id="2" hour="05:00" />
+		<program id="1" hour="08:00" />
+		<program id="2" hour="12:00" />
+		<program id="1" hour="15:00" />
+		<program id="2" hour="22:00" />
+	</sunday>
+
+	<monday title="Segunda-feira">
+		<program id="1" hour="02:00" />
+		<program id="2" hour="14:00" />
+	</monday>
+
+	<tuesday title="Terça-feira">
+		<program id="1" hour="04:00" dj="Específico" />
+		<program id="2" hour="05:00" />
+		<program id="1" hour="08:00" />
+		<program id="2" hour="12:00" />
+		<program id="1" hour="15:00" />
+		<program id="2" hour="22:00" />
+	</tuesday>
+
+	<wednesday title="Quarta-feira">
+		<program id="1" hour="15:00" />
+		<program id="2" hour="22:00" />
+	</wednesday>
+
+	<thursday title="Quinta-feira">
+		<program id="1" hour="00:00" />
+		<program id="2" hour="05:00" />
+		<program id="1" hour="08:00" />
+		<program id="2" hour="13:00" />
+		<program id="1" hour="15:00" />
+		<program id="2" hour="22:00" />
+	</thursday>
+
+	<friday title="Sexta-feira">
+		<program id="1" hour="00:00" />
+		<program id="2" hour="05:00" />
+		<program id="1" hour="08:00" />
+		<program id="2" hour="12:00" />
+		<program id="1" hour="15:00" />
+		<program id="2" hour="22:00" />
+	</friday>
+
+	<saturday title="Sábado">
+		<program id="1" hour="00:00" />
+		<program id="2" hour="05:00" />
+		<program id="1" hour="08:00" />
+		<program id="2" hour="12:00" />
+		<program id="1" hour="15:00" />
+	</saturday>
+
+</schedule>

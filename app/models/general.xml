@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+* INSTRUÇÕES
+*
+* Todos os atributos de <labels> está disponível nas views das páginas no formato $labels->attr;
+* A etiqueta dinâmica {title} faz referência ao atributo TITLE de <info> e pode ser utilizada em qualquer parte DESTE arquivo;
+* Cada <page> dentro de <pages> será acrescentada como página na navegação do rodapé, porém é necessária a definição do controller;
+* O atributo TITLE de <page> é utilizado no rótulo das páginas no rodapé e no próprio título da página;
+* O atributo BROWSER_TITLE de <page> é utilizado no título do navegador, quando <page> for a página corrente;
+* O atributo ID de <action> faz referência à <page> com o mesmo ID e aproveita seus atributos;
+-->
+<general>
+
+	<info
+		title="Rádio Toca"
+		email="contato@radiotoca.com.br"
+		twitter_tag="#RadioToca"
+	/>
+
+	<labels
+		actions="Faça"
+		itwitter="Onde quer que esteja"
+		more_tweets="+ tweets"
+		view_profile="Ver perfil"
+		view_twitter="Ver twitter"
+		more_from_user="Mais tweets"
+		top_listeners="Top 10 ouvintes"
+		top_songs="Top 5 músicas"
+		more_listeners="+ ouvintes"
+		tweet_button="Twittar"
+		send_button="Enviar"
+		reset_button="Limpar"
+	/>
+
+	<pages>
+		<page
+			id="Begin"
+			title="Home"
+			browser_title="Comece com {song} na {title}"
+			meta_description="E isso é só o começo. A {title} está no ar 24h por dia tocando os melhores sons da web."
+			meta_keywords="rádio, online, música, som, festa"
+		/>
+		<page
+			id="Company"
+			title="A Rádio"
+			browser_title="A {title}"
+			meta_description="Conheça a {title} e ouça os melhores sons da web."
+			meta_keywords="rádio, online, música, som, festa"
+		/>
+		<page
+			id="Schedule"
+			title="Grade de Programação"
+			browser_title="Programe-se com {song} às {hour} na {title}"
+			meta_description="Saiba o que a {title} durante a semana inteira. Uma Grade de Programação com tudo que você quer ouvir diariamente."
+			meta_keywords="rádio, online, música, som, festa"
+		>
+			<page id="days" title="Dia" browser_title="{day} tem {song} às {hour} na programação da {title}" meta_description="Na {title}, {day} é sempre curtição. Marque presença aqui e curta os melhores sons da web." />
+			<page id="programs" title="Programa" browser_title="{program} na programação da {title}" meta_description="{program_desc}" />
+			<page id="songs" title="Música" browser_title="{song} na programação da {title}" meta_description="Procurando por {song}? A Rádio TOCA! Confira a nossa programação e ouça os melhores sons da web." />
+		</page>
+		<page
+			id="Tweets"
+			title="Tweets"
+			browser_title="Participe twittando na {twitter_tag}"
+			meta_description="A {title} é 100% interatividade. Participe conosco através do Twitter: faça seus pedidos, dê suas sugestões, reclame... basta twittar!"
+			meta_keywords="rádio, música, ouvintes, twitter, interatividade"
+		>
+			<page id="listener" title="Ouvinte" browser_title="Tweets de {user} na {title}" meta_description="{tweet}" />
+		</page>
+		<page
+			id="Listeners"
+			title="Ouvintes"
+			browser_title="Você e {user} curtem a {title}"
+			meta_description="Nossos ouvintes têm um espaço especial no nosso site, o coração da {title}. Basta participar pelo Twitter e seu nome já estará aqui."
+			meta_keywords="rádio, música, ouvintes, twitter, interatividade"
+		>
+			<page id="listener" title="Ouvinte" browser_title="{user} está na {title}" meta_description="{user_desc}" />
+		</page>
+		<page
+			id="Contact"
+			title="Fale Conosco"
+			browser_title="Fale com a {title}"
+			meta_description="Fale conosco. Utilize este canal direto com a {title}. Agora nós somos os ouvintes e quem fala é você!"
+			meta_keywords="rádio, contato, interatividade"
+		/>
+	</pages>
+
+	<actions>
+		<action id="Begin" title="Comece" current_title="Comecei" desc="Dê o play e entre, já tá rolando a festa" />
+		<action id="Schedule" title="Programe-se" current_title="Ouvindo agora e depois" desc="Saiba o que a rádio toca durante toda a semana" />
+		<action id="Tweets" title="Participe" current_title="Twittando" desc="Deixe seu tweet na {twitter_tag}" />
+		<action id="Contact" title="Fale Conosco" current_title="Entrando em contato" desc="Agora nós somos os ouvintes e quem fala é você" />
+	</actions>
+
+	<iSchedule>
+		<titles>
+			<program maxlength="25"><a href="{program_url}" title="{complete_program_title}">{program_title}</a></program>
+			<song maxlength="25"><a href="{song_url}" title="{complete_song_title}">{song_title}</a></song>
+			<dj maxlength="25">{dj_title}</dj>
+			<songProgram>{song} no {program}</songProgram>
+			<programDj>{program} com DJ {dj}</programDj>
+			<offline>A rádio está offline no momento</offline>
+		</titles>
+		<labels>
+			<now>AGORA</now>
+			<after>DEPOIS</after>
+			<later>MAIS TARDE</later>
+		</labels>
+	</iSchedule>
+
+	<iTwitter>
+		<form>
+			<legend>Twitter</legend>
+			<desc>Escreva sua mensagem aqui ou no próprio Twitter, só não esqueça a tag {twitter_tag}</desc>
+		</form>
+	</iTwitter>
+
+	<pagination>
+		<first>Voltar para a primeira página</first>
+		<previous>Voltar para a página {previous}</previous>
+		<next>Ir para a página {next}</next>
+		<last>Ir para a página {last}</last>
+	</pagination>
+
+	<copyright>
+		<desc>©{year} {title}</desc>
+	</copyright>
+
+	<sponsorship>
+		<name>HostCerta</name>
+		<desc>Patrocínio HostCerta</desc>
+		<website>http://www.hostcerta.com.br</website>
+		<email>contato@hostcerta.com.br</email>
+	</sponsorship>
+
+	<credits>
+		<name>Diego Haz</name>
+		<desc>Produzido por Diego Haz</desc>
+		<website>http://diegohaz.com</website>
+		<email>www@diegohaz.com</email>
+	</credits>
+
+</general>

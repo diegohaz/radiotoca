@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+* INSTRUÇÕES
+*
+* OS SÍBOLOS '&', '<' E '>' DEVEM SER INSERIDOS COMO '&amp;' (&), '&lt;' (<) E '&gt;' (>);
+-->
+<company>
+
+	<content>
+		<p>A <strong>Rádio Toca</strong> tem uma <a href="{url('Schedule')}">grade de programação</a> com tudo que você gosta de ouvir diariamente.</p>
+	</content>
+
+</company>

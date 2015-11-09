@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+ * @package				core.models.errors
+ * @since 				Neleus 0.2
+ * @version 			0.4
+ * @author 				Diego Haz <http://diegohaz.com>
+ * @lastmodified	21/08/2010
+-->
+<noview>
+	<title>View not found</title>
+	<header>View <em>{view}</em> not found</header>
+	<desc>Create a view file with name <em>{file}</em> in <em>{dir}</em>.</desc>
+</noview>

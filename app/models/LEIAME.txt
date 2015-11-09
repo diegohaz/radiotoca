@@ -1,0 +1,89 @@
+﻿INSTRUÇÕES PARA MANUSEIO DO SISTEMA RÁDIO TOCA
+
+1 - INSTRUÇÕES GERAIS
+
+	ATENÇÃO: Faça um backup antes de alterar qualquer arquivo!
+
+	Os arquivos que podem ser alterados encontram-se no diretório /app/models/, a partir da pasta public_html do FTP do site, são eles:
+	company.xml;
+	songs.xml;
+	programs.xml;
+	e schedule.xml.
+
+	ATENÇÃO: A alteração de outro arquivo que não seja um destes poderá prejudicar o sistema.
+
+	Basicamente, as alterações envolvem uma sintaxe XML: <tag atributo="valor">conteúdo</tag>
+	Em geral, podem ser alterados "valor" e "conteúdo".
+
+	Antes de continuar lendo, abra os 4 arquivos citados e dê uma olhada nos conteúdos. Procure entendê-los inicialmente sem necessidade de explicação e mantenha-os abertos enquanto estiver lendo para acompanhar os detalhes.
+
+
+2 - PÁGINA A RÁDIO - company.xml
+
+	O conteúdo HTML da página A RÁDIO deve ser inserido dentro da tag <content> no arquivo company.xml.
+	Cada parágrafo deve ser inserido como conteúdo da tag <p></p>, negritos em <strong></strong>, links entre <a href="link"></a>, etc.
+	Um cuidado especial deve ser dado aos caracteres "&", "<" e ">", que devem ser inseridos como "&amp;", "&lt;" e "&gt;", respectivamente, sem aspas.
+
+
+3 - MÚSICAS - songs.xml
+
+	Na tag principal, <songs>, os atributos determinam as informações que serão apresentadas na página específica da música (ex: /grade/musicas/skazi-aggression). Os valores desses atributos determinam o rótulo do atributo na página (ex: artist="Artista").
+	Um cuidado especial deve ser dado aos caracteres "&", "<" e ">", que devem ser inseridos como "&amp;", "&lt;" e "&gt;", respectivamente, sem aspas.
+
+	3.1 - Inserindo novas músicas
+		Basta inserir uma nova tag <song>, seguindo o modelo das outras, ela deve possuir um atributo ID único para ser referenciado em outros models, de preferência um número. Este não precisa seguir nenhuma ordem. É possível, por exemplo, que a primeira tag <song> tenha um ID="154". A ordem das <song> define o TOP MÚSICAS.
+
+	3.2 - Removendo músicas
+		Basta apagar a tag <song> da música até seu fechamento ( />). É importante se certificar também de que esta seja removida dos programas que a definem como música frequente em programs.xml. Para encontrá-la facilmente entre os programas, basta realizar uma simples busca (ctrl+F) por '<song id="X"'.
+
+	3.3 - Top Músicas
+		O Top 5 Músicas é determinado pela ordem das <song> (a ordem, e não o ID, que deve ser sempre o mesmo), ou seja, a primeira <song>, mesmo que tenha um ID="154", será a primeira listada no top.
+
+
+4 - PROGRAMAS - programs.xml
+
+	Na tag principal, <programs>, os atributos determinam as informações que serão apresentadas na página específica do programa (ex: /grade/programas/toca-ai). Os valores desses atributos determinam o rótulo do atributo na página (ex: genre="Gênero").
+	Um cuidado especial deve ser dado aos caracteres "&", "<" e ">", que devem ser inseridos como "&amp;", "&lt;" e "&gt;", respectivamente, sem aspas.
+
+	4.1 - Inserindo novos programas
+		Basta inserir uma nova tag <program>, seguindo o modelo das outras, ela deve possuir um atributo ID único para ser referenciado em outros models, de preferência um número. Este não precisa seguir nenhuma ordem. É possível, por exemplo, que a primeira tag <program> tenha um ID="154". A ordem dos <program> não determina nada, ou seja, deve ser ordenado apenas por organização.
+
+	4.2 - Removendo programas
+		Basta apagar a tag <program> do programa até seu fechamento (</program>). É importante se certificar também de que este seja removido da grade de programação em schedule.xml. Para encontrá-lo facilmente entre os programas da grade, basta realizar uma simples busca (ctrl+F) por '<program id="X"'.
+
+	4.3 - Sobre o DJ
+		O atributo DJ nos <program> é opcional, entretanto ele sempre existirá. Caso não seja definido, assumirá o valor 'AutoDJ'. Há ainda a possibilidade de definir um DJ padrão para o programa (Ex: Marquinho) neste <program> e específicos para o programa em determinado horário no model schedule.xml. Isto será melhor abordado mais adiante.
+
+	4.4 - Sobre as músicas frequentes (<songs>)
+		Na tag <songs>, dentro de cada <program>, devem ser colocadas as músicas frequentes do programa. A sintaxe é semelhante à definição da música no model songs.xml. No entanto, apenas o atributo ID é necessário, devendo bater com o ID da música. Um atributo opcional que pode ser inserido na <song> do <program> é o FREQUENCY. Como o próprio nome já diz, ele determina com que frequência a música é tocada no programa. Isso é uma estimativa, não precisa ser exato, e caso não seja informado, será tomado frequency="1".
+
+		Ex: <song id="154" frequency="1/5" /> Faz referência à música de ID 154 e toca uma vez a cada 5 programas (o <program> pai).
+		Ex: <song id="3" /> Faz referência à música de ID 3 e toca uma vez por programa (padrão para frequency não informado: frequency="1")
+
+		Mas, na prática, você pode se perguntar, pra que serve esse FREQUENCY? No módulo iSchedule (aquele atalho da grade de programação: AGORA, DEPOIS, MAIS TARDE), em DEPOIS e MAIS TARDE é exibida, "aleatoriamente", uma das músicas frequentes do programa. De fato, não é tão aleatoriamente assim; quanto maior a FREQUENCY da música frequente, maiores são suas chances de aparecer ali.
+
+
+5 - GRADE DE PROGRAMAÇÃO - schedule.xml
+
+	Cada dia é definido como uma tag dentro da tag principal, <schedule>, e seu nome é o nome do dia da semana em inglês, ex: <sunday>. O nome em inglês não deve ser alterado, é através dele que o sistema identifica qual é o dia de fato e permite que os dias sejam ordenados por quaisquer critérios sem afetá-lo.
+
+	5.1 - Organizando a grade de programação
+		A ordem dos dias e horários somente influencia a ordem em que eles aparecerão na página. A duração do programa vai do horário definido no atributo HOUR até o horário do próximo programa.
+
+	5.2 - Sobre os DJs específicos
+		Um programa, em determinado horário, pode ter um DJ diferente daquele definido no model programs.xml. Para tanto, basta inserir o atributo DJ no <program>.
+		
+		Ex: <program id="451" dj="Marquinho" [outros atributos...] />, em programs.xml
+		Ex: <program id="451" hour="18:25" dj="Marcão" />, dentro de <sunday>, em schedule.xml
+		
+		Marquinho é DJ padrão para o programa 451. No horário 18:25 de sunday, porém, o DJ deste programa será o Marcão.
+
+
+6 - CONSIDERAÇÕES FINAIS - d.haz@hotmail.com
+
+	Apenas altere estes 4 models. Alterações sem orientação nos outros models podem prejudicar o sistema, e talvez um simples backup do arquivo não possa resolver, pois algumas informações são passadas ao banco de dados.
+
+	Caso hajam dúvidas, entre em contato.
+
+Um abraço,
+Haz.

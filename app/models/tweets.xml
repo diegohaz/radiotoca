@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<tweets>
+
+	<tweet>
+		<months>
+			<month number="1">Jan</month>
+			<month number="2">Fev</month>
+			<month number="3">Mar</month>
+			<month number="4">Abr</month>
+			<month number="5">Mai</month>
+			<month number="6">Jun</month>
+			<month number="7">Jul</month>
+			<month number="8">Ago</month>
+			<month number="9">Set</month>
+			<month number="10">Out</month>
+			<month number="11">Nov</month>
+			<month number="12">Dez</month>
+		</months>
+		<date>
+			<seconds>{n} segundo{s} atrás</seconds>
+			<minutes>{n} minuto{s} atrás</minutes>
+			<hours>{n} hora{s} atrás</hours>
+			<days>{n} dia{s} atrás, às {hour}</days>
+			<default>{day} {month} {year}, às {hour}</default>
+		</date>
+		<footer><a href="{tweet_url}" target="_blank">{date}</a>, por <a href="{listener_url}" target="_blank">{listener}</a></footer>
+	</tweet>
+
+</tweets>
